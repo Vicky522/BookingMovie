@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import ChiTietPhim from "./pages/ChiTietPhim/ChiTietPhim";
 import DangKy from "./pages/DangKy/DangKy";
@@ -10,10 +10,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Route path="/trangchu" component={TrangChu} />
-        <Route path="/dangky" component={DangKy} />
-        <Route path="/dangnhap" component={DangNhap} />
-        <Route path="/chitietphim" component={ChiTietPhim} />
+        <Switch>
+          <Route path="/" exact component={TrangChu} />
+          <Route path="/dangky" component={DangKy} />
+          <Route path="/dangnhap" component={DangNhap} />
+          <Route path="/chitietphim/:maPhim" component={ChiTietPhim} />
+        </Switch>
       </BrowserRouter>
     </div>
   );
