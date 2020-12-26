@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { getDataFilmAction } from "../../redux/actions/QuanLyPhimAction";
+import { NavLink } from "react-router-dom";
 
 export default function TrangChu(props) {
   //useSelector là hook reactređux cung cấp dùng để lấy state từ store về
@@ -27,6 +28,12 @@ export default function TrangChu(props) {
             <div className="card-body">
               <h4 className="card-title">{phim.tenPhim}</h4>
               <p className="card-text">{phim.moTa}</p>
+              <NavLink
+                className="btn btn-danger"
+                to={`/chiTietPhim/${phim.maPhim}`}
+              >
+                Mua vé
+              </NavLink>
             </div>
           </div>
         </div>
