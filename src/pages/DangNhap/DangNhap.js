@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { dangNhapAction } from "../../redux/actions/QuanLyNguoiDungAction";
 
-export default function DangNhap() {
+export default function DangNhap(props) {
   //useDispatch là hook do react redux cung cập tương tự props.dispatch khi sử dụng connect
   const dispatch = useDispatch();
   //useState là thư viện thay thế this.state trong RE class component
@@ -22,7 +22,12 @@ export default function DangNhap() {
   const handleSubmit = (e) => {
     e.preventDefault(); //cản sự kiện submit của browser (reload page)
     //Gọi api để xác thực đăng nhập
-    dispatch(dangNhapAction(state));
+    dispatch(dangNhapAction(state, props));
+
+    //dung chuyen huong ve trang chu
+    //push: chuyen huong
+    //replace: thay the page hien tai
+    // props.history.push("/")
   };
   return (
     <form className="container" onSubmit={handleSubmit}>

@@ -5,7 +5,7 @@ import moment from "moment";
 export default function ChiTietPhim(props) {
   // tạo 1 state chứa thông tin chi tiết phim, giá trị ban đầu là object rỗng
   const [chiTietPhim, setChiTietPhim] = useState({});
-
+  console.log(45);
   //dùng useEffect để tự động gọi api khi trang chi tiết phim load import React from 'react'
   useEffect(async () => {
     //props.match.param.:props này là props của thẻ route truyền cho component

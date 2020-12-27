@@ -5,6 +5,7 @@ import { getDataFilmAction } from "../../redux/actions/QuanLyPhimAction";
 import { NavLink } from "react-router-dom";
 
 export default function TrangChu(props) {
+  console.log("propsRoute", props);
   //useSelector là hook reactređux cung cấp dùng để lấy state từ store về
   const mangPhim = useSelector((state) => state.QuanLyPhimReducer.mangPhim);
   //UseDispatch là hook thay thế cho props.dispatch khu dùng redux connect
