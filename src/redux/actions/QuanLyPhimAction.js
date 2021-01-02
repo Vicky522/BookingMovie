@@ -14,3 +14,21 @@ export const getDataFilmAction = () => {
     });
   };
 };
+
+export const layThongTinPhongVeAction = (maLichChieu) => {
+  return async (dispatch) => {
+    try {
+      const result = await axios({
+        url: `${DOMAIN}/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+        method: "GET",
+      });
+      dispatch({
+        type: "LAY_THONG_TIN_PHONG_VE",
+        thongTinPhongVe: result.data,
+      });
+    } catch (err) {
+      console.log(err.response?.data);
+      console.log(err);
+    }
+  };
+};

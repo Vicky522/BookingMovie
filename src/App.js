@@ -8,6 +8,10 @@ import HomeTemplate from "./templates/HomeTemplate";
 import LoginTemplate from "./templates/LoginTemplate";
 // history.js
 import { createBrowserHistory } from "history";
+import { AdminTemplate } from "./templates/AdminTemplate";
+import QuanLyPhim from "./pages/QuanLyPhim/QuanLyPhim";
+import QuanLyNguoiDung from "./pages/QuanLyNguoiDung/QuanLyNguoiDung";
+import { BookingTemplate } from "./templates/BookingTemplate";
 
 export const history = createBrowserHistory();
 
@@ -18,15 +22,16 @@ function App() {
         {/* <Header /> */}
         <Switch>
           {/* <Route path="/" exact component={TrangChu} /> */}
-          <Route
-            path="/datve"
-            render={(propsRoute) => {
-              return <DatVe {...propsRoute} />;
-            }}
-          />
+
+          <BookingTemplate path="/datve/:maLichChieu" Component={DatVe} />
           <LoginTemplate path="/dangnhap" Component={DangNhap} />
           <LoginTemplate path="/dangky" Component={DangKy} />
           <HomeTemplate path="/chiTietPhim/:maPhim" Component={ChiTietPhim} />
+          <AdminTemplate path="/admin/quanlyphim" Component={QuanLyPhim} />
+          <AdminTemplate
+            path="/admin/quanlynguoidung"
+            Component={QuanLyNguoiDung}
+          />
           <HomeTemplate path="/" Component={TrangChu} />
         </Switch>
       </Router>

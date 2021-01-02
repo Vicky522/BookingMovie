@@ -22,3 +22,24 @@ export const dangNhapAction = (nguoiDung, props) => {
     }
   };
 };
+
+export const datVeApiAction = (objectDatVe) => {
+  return async (dispatch) => {
+    try {
+      const result = await axios({
+        url: `${DOMAIN}/api/QuanLyDatVe/DatVe`,
+        method: "POST",
+        data: objectDatVe,
+        header: {
+          Authorization: `Bearer ${localStorage.getItem(
+            ACCESS_TOKEN,
+            result.data.accessToken
+          )}`,
+        },
+      });
+    } catch (err) {
+      console.log(err.response?.data);
+      console.log(err);
+    }
+  };
+};
